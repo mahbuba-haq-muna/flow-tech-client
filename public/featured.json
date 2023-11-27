@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "name": "SolarSync Portable Power Bank",
+      "image": "https://i.imgur.com/qSO37yJ.jpg",
+      "date": "2023-11-26",
+      "description": "Charge your devices on the go with the SolarSync Portable Power Bank.",
+      "externalLink": "https://solarsync.com",
+      "tags": ["Green Tech", "Portable Charger", "Solar Power"],
+      "upvotes": 15,
+      "downvotes": 3
+    },
+    {
+      "id": 2,
+      "name": "Garmin D2 Air Smart Watch",
+      "image": "https://i.imgur.com/gqXFWVh.jpg",
+      "date": "2023-11-21",
+      "description": "Stay connected and monitor your health with the QuantumFlow Smart Watch.",
+      "externalLink": "https://quantumflow.com",
+      "tags": ["Wearable Technology", "Smartwatch", "Health Tracking"],
+      "upvotes": 20,
+      "downvotes": 5
+    },
+    {
+      "id": 3,
+      "name": "PlutoSphere VR Gaming System",
+      "image": "https://i.imgur.com/ezZHyYi.jpg",
+      "date": "2023-11-20",
+      "description": "Immerse yourself in a world of gaming with the PulseSphere VR Gaming System.",
+      "externalLink": "https://pulsesphere.com",
+      "tags": ["Gaming Gadgets", "Virtual Reality", "Gaming System"],
+      "upvotes": 25,
+      "downvotes": 8
+    },
+    {
+      "id": 4,
+      "name": "InnoHome AI Assistant Hub",
+      "image": "https://i.imgur.com/gNQ2PMp.jpg",
+      "date": "2023-12-03",
+      "description": "Transform your home with the InnoHome AI Assistant Hub for smart living.",
+      "externalLink": "https://innohome.com",
+      "tags": ["Emerging Technologies", "AI Assistant", "Smart Home"],
+      "upvotes": 18,
+      "downvotes": 4
+    }
+  ]
