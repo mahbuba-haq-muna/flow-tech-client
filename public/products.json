@@ -1,0 +1,185 @@
+ [
+      {
+        "name": "Smart Coffee Maker",
+        "image": "https://i.imgur.com/i5bF1cX.jpg",
+        "date": "2023-12-16",
+        "description": "Brew your coffee intelligently with the Smart Coffee Maker for a perfect cup every time.",
+        "externalLink": "https://smartcoffee.com",
+        "tags": ["Kitchen Appliances", "Smart Home", "Coffee"],
+        "upvotes": 12,
+        "downvotes": 1
+      },
+      {
+        "name": "Eco-Friendly Bamboo Keyboard",
+        "image": "https://i.imgur.com/XMVStaf.jpg",
+        "date": "2023-12-17",
+        "description": "Upgrade your workspace with the Eco-Friendly Bamboo Keyboard for a sustainable typing experience.",
+        "externalLink": "https://ecobamboo.com",
+        "tags": ["Green Tech", "Office Gadgets", "Eco-Friendly"],
+        "upvotes": 15,
+        "downvotes": 2
+      },
+      {
+        "name": "RoboChef Culinary Assistant",
+        "image": "https://i.imgur.com/3DJYpDs.jpg",
+        "date": "2023-12-18",
+        "description": "Transform your kitchen with the RoboChef Culinary Assistant, your smart cooking companion.",
+        "externalLink": "https://robochef.com",
+        "tags": ["Smart Kitchen", "Robotics", "Cooking"],
+        "upvotes": 18,
+        "downvotes": 3
+      },
+      {
+        "name": "Foldable Electric Scooter",
+        "image": "https://i.imgur.com/1r8LIZV.jpg",
+        "date": "2023-12-19",
+        "description": "Commute in style with the Foldable Electric Scooter, compact and eco-friendly transportation.",
+        "externalLink": "https://foldablescooter.com",
+        "tags": ["Electric Vehicles", "Urban Mobility", "Sustainability"],
+        "upvotes": 20,
+        "downvotes": 4
+      },
+      {
+        "name": "Mindful Meditation Headset",
+        "image": "https://i.imgur.com/2MKoEwr.jpg",
+        "date": "2023-12-20",
+        "description": "Achieve peace of mind with the Mindful Meditation Headset, your guide to relaxation.",
+        "externalLink": "https://mindfulmeditation.com",
+        "tags": ["Wellness", "Meditation", "Wearable Tech"],
+        "upvotes": 22,
+        "downvotes": 1
+      },
+      {
+        "name": "Augmented Reality Glasses",
+        "image": "https://i.imgur.com/x76aulh.png",
+        "date": "2023-12-21",
+        "description": "Explore a new reality with Augmented Reality Glasses, blending the virtual and real worlds.",
+        "externalLink": "https://arglasses.com",
+        "tags": ["AR Technology", "Wearable Gadgets", "Innovation"],
+        "upvotes": 25,
+        "downvotes": 5
+      },
+      {
+        "name": "Smart Plant Care System",
+        "image": "https://i.imgur.com/WwwwiZB.jpg",
+        "date": "2023-12-22",
+        "description": "Keep your plants thriving with the Smart Plant Care System, providing automated care and monitoring.",
+        "externalLink": "https://smartplantcare.com",
+        "tags": ["Smart Home", "Gardening", "IoT"],
+        "upvotes": 18,
+        "downvotes": 2
+      },
+      
+      {
+        "name": "Smart Home Security Drone",
+        "image": "https://i.imgur.com/Tbz8cF8.jpg",
+        "date": "2023-12-24",
+        "description": "Enhance your home security with the Smart Home Security Drone, a flying surveillance solution.",
+        "externalLink": "https://securitydrone.com",
+        "tags": ["Smart Home", "Security", "Drone Technology"],
+        "upvotes": 22,
+        "downvotes": 1
+      },
+      {
+        "name": "SolarSync Portable Power Bank",
+        "image": "https://i.imgur.com/qSO37yJ.jpg",
+        "date": "2023-11-26",
+        "description": "Charge your devices on the go with the SolarSync Portable Power Bank.",
+        "externalLink": "https://solarsync.com",
+        "tags": ["Green Tech", "Portable Charger", "Solar Power"],
+        "upvotes": 15,
+        "downvotes": 3
+      },
+      {
+        "name": "Garmin D2 Air Smart Watch",
+        "image": "https://i.imgur.com/gqXFWVh.jpg",
+        "date": "2023-11-21",
+        "description": "Stay connected and monitor your health with the QuantumFlow Smart Watch.",
+        "externalLink": "https://quantumflow.com",
+        "tags": ["Wearable Technology", "Smartwatch", "Health Tracking"],
+        "upvotes": 20,
+        "downvotes": 5
+      },
+      {
+        "name": "PlutoSphere VR Gaming System",
+        "image": "https://i.imgur.com/ezZHyYi.jpg",
+        "date": "2023-11-20",
+        "description": "Immerse yourself in a world of gaming with the PulseSphere VR Gaming System.",
+        "externalLink": "https://pulsesphere.com",
+        "tags": ["Gaming Gadgets", "Virtual Reality", "Gaming System"],
+        "upvotes": 25,
+        "downvotes": 8
+      },
+      {
+        "name": "InnoHome AI Assistant Hub",
+        "image": "https://i.imgur.com/gNQ2PMp.jpg",
+        "date": "2023-12-03",
+        "description": "Transform your home with the InnoHome AI Assistant Hub for smart living.",
+        "externalLink": "https://innohome.com",
+        "tags": ["Emerging Technologies", "AI Assistant", "Smart Home"],
+        "upvotes": 18,
+        "downvotes": 4
+      },
+      {
+        "name": "AirPods Max",
+        "image": "https://i.imgur.com/ykyTvIG.jpg",
+        "date": "2023-12-10",
+        "description": "Experience high-fidelity audio with the Apple AirPods Max over-ear headphones.",
+        "externalLink": "https://apple.com/airpods-max",
+        "tags": ["Audio", "Headphones", "Wireless"],
+        "upvotes": 30,
+        "downvotes": 5
+      },
+      {
+        "name": "Samsung Galaxy S22 Ultra",
+        "image": "https://i.imgur.com/s3y1xPQ.jpg",
+        "date": "2023-12-11",
+        "description": "Unleash the power of innovation with the Samsung Galaxy S22 Ultra smartphone.",
+        "externalLink": "https://samsung.com/galaxy-s22-ultra",
+        "tags": ["Mobile", "Smartphone", "Flagship"],
+        "upvotes": 25,
+        "downvotes": 3
+      },
+      {
+        "name": "Dyson V15 Detect Vacuum",
+        "image": "https://i.imgur.com/OpCH9eh.jpg",
+        "date": "2023-12-12",
+        "description": "Keep your home spotless with the Dyson V15 Detect Cordless Vacuum Cleaner.",
+        "externalLink": "https://dyson.com/v15-detect",
+        "tags": ["Home Appliances", "Vacuum Cleaner", "Smart Tech"],
+        "upvotes": 22,
+        "downvotes": 6
+      },
+      {
+        "name": "Sony A7 IV Mirrorless Camera",
+        "image": "https://i.imgur.com/0YhN79N.jpg",
+        "date": "2023-12-13",
+        "description": "Capture stunning moments with the Sony A7 IV Mirrorless Camera.",
+        "externalLink": "https://sony.com/a7-iv",
+        "tags": ["Photography", "Mirrorless Camera", "Professional"],
+        "upvotes": 28,
+        "downvotes": 4
+      },
+      {
+        "name": "Fitbit Charge 5",
+        "image": "https://i.imgur.com/VtULkwf.jpg",
+        "date": "2023-12-14",
+        "description": "Achieve your fitness goals with the Fitbit Charge 5 fitness tracker.",
+        "externalLink": "https://fitbit.com/charge-5",
+        "tags": ["Fitness", "Wearable", "Health Tracking"],
+        "upvotes": 18,
+        "downvotes": 2
+      },
+      {
+        "name": "LG OLED C1 Series TV",
+        "image": "https://i.imgur.com/SMP2G7g.jpg",
+        "date": "2023-12-15",
+        "description": "Immerse yourself in stunning visuals with the LG OLED C1 Series 4K TV.",
+        "externalLink": "https://lg.com/oled-c1",
+        "tags": ["TV", "Entertainment", "4K"],
+        "upvotes": 24,
+        "downvotes": 7
+      }
+    ]
+  
+  

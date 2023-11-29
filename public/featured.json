@@ -1,6 +1,5 @@
 [
     {
-      "id": 1,
       "name": "SolarSync Portable Power Bank",
       "image": "https://i.imgur.com/qSO37yJ.jpg",
       "date": "2023-11-26",
@@ -11,7 +10,6 @@
       "downvotes": 3
     },
     {
-      "id": 2,
       "name": "Garmin D2 Air Smart Watch",
       "image": "https://i.imgur.com/gqXFWVh.jpg",
       "date": "2023-11-21",
@@ -22,7 +20,6 @@
       "downvotes": 5
     },
     {
-      "id": 3,
       "name": "PlutoSphere VR Gaming System",
       "image": "https://i.imgur.com/ezZHyYi.jpg",
       "date": "2023-11-20",
@@ -33,7 +30,6 @@
       "downvotes": 8
     },
     {
-      "id": 4,
       "name": "InnoHome AI Assistant Hub",
       "image": "https://i.imgur.com/gNQ2PMp.jpg",
       "date": "2023-12-03",
