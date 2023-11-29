@@ -42,7 +42,8 @@ const Featured = () => {
                         <div className="card border-b-2 border-fuchsia-500 bg-fuchsia-50">
                             <figure><img src={product.image} alt="Shoes" className="h-56" /></figure>
                             <div className="card-body ">
-                                <h2 className="card-title">{product.name}</h2>
+                            <Link to={`/featured/${product._id}`} 
+                                ><h2 className="card-title">{product.name}</h2></Link>
                                 <p className="text-center text-gray-400">date: {product.date}</p>
                                 <p className="my-5"> Tags: {product.tags.map((tag, index) => (
                                     <span key={index}>{tag}{index < product.tags.length - 1 ? ', ' : ''}</span>

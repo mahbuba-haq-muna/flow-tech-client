@@ -42,6 +42,11 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: 'products/:id/:review',
           element: <Review></Review>
+        },
+        {
+          path: 'featured/:id',
+          element: <ProductDetails></ProductDetails>,
+          loader: ({params}) =>fetch(`http://localhost:5000/featured/${params.id}`),
         }
       ]
     },
