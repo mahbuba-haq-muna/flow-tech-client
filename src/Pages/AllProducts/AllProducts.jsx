@@ -22,14 +22,14 @@ const AllProducts = () => {
     }
     const [products, setProduct] = useState([])
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/products?search=${search}`)
+    //     fetch(`https://flow-tech-server.vercel.app/products?search=${search}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             setProduct(data)
     //         })
     // }, [search])
     useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://flow-tech-server.vercel.app/products`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)

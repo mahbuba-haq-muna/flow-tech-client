@@ -10,6 +10,9 @@ import AllProducts from "../Pages/AllProducts/Allproducts";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import Review from "../Pages/Review/Review";
 import PrivateRoute from "./PrivateRoute";
+import DashBoard from "../Layout/DashBoard";
+import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 
  export  const router = createBrowserRouter([
@@ -37,7 +40,7 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: 'products/:id',
           element: <ProductDetails></ProductDetails>,
-          loader: ({params}) =>fetch(`http://localhost:5000/products/${params.id}`),
+          loader: ({params}) =>fetch(`https://flow-tech-server.vercel.app/products/${params.id}`),
         },
         {
           path: 'products/:id/:review',
@@ -46,9 +49,23 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: 'featured/:id',
           element: <ProductDetails></ProductDetails>,
-          loader: ({params}) =>fetch(`http://localhost:5000/featured/${params.id}`),
+          loader: ({params}) =>fetch(`https://flow-tech-server.vercel.app/featured/${params.id}`),
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+      children: [
+        {
+          path: 'userProfile',
+          element: <UserProfile></UserProfile>
+        },
+        {
+          path: 'users',
+          element: <AllUsers></AllUsers>
+        }
+      ]
+    }
   ]);
 

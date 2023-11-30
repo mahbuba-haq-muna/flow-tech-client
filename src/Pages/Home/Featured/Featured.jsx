@@ -25,7 +25,7 @@ const Featured = () => {
 
     const [products, setProduct] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/featured')
+        fetch('https://flow-tech-server.vercel.app/featured')
             .then(res => res.json())
             .then(data => {
                 setProduct(data)

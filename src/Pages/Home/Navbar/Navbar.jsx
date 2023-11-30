@@ -64,7 +64,7 @@ const Navbar = () => {
                             <li className="text-center">
                             {user?.displayName}
                             </li>
-                            <li><Link>DashBoard</Link></li>
+                            <li><Link to={'/dashboard'}>DashBoard</Link></li>
                             <li><button onClick={handleLogOut}>Logout</button></li>
                         </ul>
                     </div>

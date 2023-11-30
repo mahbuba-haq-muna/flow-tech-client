@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 
 const Trending = () => {
     const {user} = useAuth()
+   
 
     const [trendingProducts, setTrendingProduct] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/trending')
+        fetch('https://flow-tech-server.vercel.app/trending')
             .then(res => res.json())
             .then(data => {
                 setTrendingProduct(data)
@@ -23,6 +24,7 @@ const Trending = () => {
           return prevProducts.map((product) =>
             product._id === productId ? { ...product, upvotes: product.upvotes + 1 } : product
           );
+          
         });
     }
         const handleDownvote = (productId) => {
@@ -52,7 +54,7 @@ const Trending = () => {
                                 ))}</p>
                                 <div className="card-actions justify-center">
                                         {
-                                            user? <button className="btn" onClick={() => handleUpvote(product._id)}>
+                                            user? <button className="btn" onClick={() => handleUpvote(product._id) } >
                                             <FaArrowUp className="text-2xl text-red-500"></FaArrowUp>
                                             <span className="badge badge-sm indicator-item">{product.upvotes}</span></button>
                                             :
