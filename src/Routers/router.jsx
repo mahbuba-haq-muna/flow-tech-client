@@ -13,6 +13,12 @@ import PrivateRoute from "./PrivateRoute";
 import DashBoard from "../Layout/DashBoard";
 import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import ProductReview from "../Pages/Dashboard/ProductReview/ProductReview";
+import Reported from "../Pages/Dashboard/Reported/Reported";
+import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
+import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
+import AdminRoute from "./AdminRoute";
 
 
  export  const router = createBrowserRouter([
@@ -55,15 +61,40 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
     },
     {
       path: 'dashboard',
-      element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+      element: <DashBoard></DashBoard>,
       children: [
         {
           path: 'userProfile',
           element: <UserProfile></UserProfile>
         },
         {
+          path: 'addProduct',
+          element: <AddProducts></AddProducts>
+        },
+        {
+          path: 'myProduct',
+          element: <MyProducts></MyProducts>
+        },
+        {
           path: 'users',
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path: 'statistics'
+        },
+        {
+          path: 'updateItems',
+          element: <UpdateItem></UpdateItem>,
+          loader: ({params}) =>fetch(`https://flow-tech-server.vercel.app/updateItems/${params.id}`),
+        },
+       
+        {
+          path: 'productReview',
+          element: <ProductReview></ProductReview>
+        },
+        {
+          path: 'reported',
+          element: <Reported></Reported>
         }
       ]
     }

@@ -1,10 +1,47 @@
-import { FaUserShield, FaUserTie } from "react-icons/fa";
+import { FaUser, FaUserShield, FaUserTie } from "react-icons/fa";
 import useUsers from "../../../hooks/useUsers";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 
 const AllUsers = () => {
-    const [users] = useUsers()
+    const [users, refetch] = useUsers();
+    const axiosSecure = useAxiosSecure()
+
+    const handleMakeAdmin = user =>{
+        axiosSecure.patch(`users/admin/admin/${user._id}`)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch()
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${user.name} is an admin now`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
+
+    const handleMakeModerator = user =>{
+        axiosSecure.patch(`/users/moderator/${user._id}`)
+        .then(res =>{
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch()
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${user.name} is an moderator now`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        })
+    }
     return (
         <div>
             <div className="flex justify-around">
@@ -32,10 +69,20 @@ const AllUsers = () => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>
-                                <button className="btn text-xl text-red-500"> <FaUserTie></FaUserTie></button>
+                                {
+                                    user.role === 'admin' ? <button className="btn text-xl text-red-500"> <FaUserTie></FaUserTie>Admin</button>
+                                    :
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn  text-red-500"> <FaUser></FaUser></button>
+                                }
+                                
                             </td>
                             <td>
-                            <button className="btn text-xl text-red-500"> <FaUserShield></FaUserShield></button>
+                                {
+                                    user.role === 'moderator' ? <button className="btn text-xl text-red-500"> <FaUserShield></FaUserShield>Moderator</button>
+                                    :
+                                    <button onClick={() => handleMakeModerator(user)} className="btn  text-red-500"> <FaUser></FaUser></button>
+                                }
+                            
                             </td>
                         </tr>)
                            }

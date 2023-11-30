@@ -1,12 +1,12 @@
-import Swal from "sweetalert2";
-import useAuth from "../../../hooks/useAuth";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
-const AddProducts = () => {
-    const {user} = useAuth()
+const UpdateItem = () => {
+    const {items} = useLoaderData()
     const {register,handleSubmit, reset, } = useForm();
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
@@ -48,11 +48,11 @@ const AddProducts = () => {
         }
         
     };
-    
     return (
         <div>
+             <div>
            <div className="  p-10  ">
-            <h1 className=" text-4xl text-center mt-10 mb-5 font-bold text-teal-700 ">Add New Product</h1>
+            <h1 className=" text-4xl text-center mt-10 mb-5 font-bold text-teal-700 ">update Product</h1>
            
             <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
@@ -61,6 +61,7 @@ const AddProducts = () => {
                         </label>
                         <input
                             type="text"
+                            defaultValue={items.name}
                             placeholder="Product Name"
                             {...register('name', { required: true })}
                             required
@@ -72,44 +73,13 @@ const AddProducts = () => {
                                 <span className="label-text">External Link*</span>
                             </label>
                             <input
+                            defaultValue={items.link}
                                 type="text"
                                 placeholder="link"
                                 {...register('link', { required: true })}
                                 className="input input-bordered w-full" />
                         </div>
-                        <div className="form-control w-full my-6">
-                            <label className="label">
-                                <span className="label-text">Owner Name</span>
-                            </label>
-                            <input
-                               value={user?.displayName}
-                                type="text"
-                                placeholder=""
-                                {...register('Owner')}
-                                className="input input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full my-6">
-                            <label className="label">
-                                <span className="label-text">Owner email</span>
-                            </label>
-                            <input
-                               value={user?.email}
-                                type="email"
-                                placeholder=""
-                                {...register('email')}
-                                className="input input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full my-6">
-                            <label className="label">
-                                <span className="label-text">Owner email</span>
-                            </label>
-                            <input
-                               value={user?.photoURL}
-                                type="text"
-                                placeholder=""
-                                {...register('photo')}
-                                className="input input-bordered w-full" />
-                        </div>
+                       
 
                     </div>
                     
@@ -117,11 +87,11 @@ const AddProducts = () => {
                         <label className="label">
                             <span className="label-text">Description</span>
                         </label>
-                        <textarea {...register('description')} className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                        <textarea defaultValue={items.description} {...register('description')} className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
                     </div>
 
                     <div className="form-control w-full my-6">
-                        <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
+                        <input defaultValue={items.image} {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
 
                     <button className="btn">
@@ -130,7 +100,8 @@ const AddProducts = () => {
                 </form>
         </div>
         </div>
+        </div>
     );
 };
 
-export default AddProducts;
+export default UpdateItem;

@@ -1,9 +1,12 @@
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../assets/flow.png'
 import { FaBars, FaChartLine, FaHome, FaList, FaShoppingBag, FaTag, FaUsers } from 'react-icons/fa';
+import useAdmin from '../hooks/useAdmin';
+import useModerator from '../hooks/useModerator';
 
 const DashBoard = () => {
-    const isAdmin = true
+    const [isAdmin] = useAdmin();
+    const [isModerator] = useModerator()
     return (
         <div>
             <div className="flex">
@@ -26,6 +29,15 @@ const DashBoard = () => {
                                     <FaTag></FaTag>Manage Coupons </Link>
                                 </li>
                             </>
+                                :
+                                isModerator ? <>
+                                <li><Link to="/dashboard/productReview">
+                                    <FaChartLine></FaChartLine>Product Review</Link>
+                                </li>
+                                <li><Link to="/dashboard/reported">
+                                   <FaUsers></FaUsers>Reported Content </Link>
+                                </li>
+                                </>
                                 :
                                 <>
                                     <li><Link to="/dashboard/userProfile">
