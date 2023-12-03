@@ -6,7 +6,8 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 const UpdateItem = () => {
-    const {items} = useLoaderData()
+    const items = useLoaderData()
+    console.log(items)
     const {register,handleSubmit, reset, } = useForm();
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
@@ -15,7 +16,7 @@ const UpdateItem = () => {
 
     const onSubmit = async (data) => {
         console.log(data)
-        // image upload to imgbb and then get an url
+
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post( image_hosting_api, imageFile, {
             headers: {
@@ -32,7 +33,7 @@ const UpdateItem = () => {
                 image: res.data.data.display_url
             }
             
-            const productsRes = await axiosSecure.post('/myItems', newProducts);
+            const productsRes = await axiosSecure.patch(`/myItems/${items._id}`, newProducts);
             console.log(productsRes.data)
             if(productsRes.data.insertedId){
                 // show success popup
@@ -54,7 +55,9 @@ const UpdateItem = () => {
            <div className="  p-10  ">
             <h1 className=" text-4xl text-center mt-10 mb-5 font-bold text-teal-700 ">update Product</h1>
            
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form
+             onSubmit={handleSubmit(onSubmit)}
+             >
                     <div className="form-control w-full my-6">
                         <label className="label">
                             <span className="label-text"> Name*</span>
@@ -64,7 +67,7 @@ const UpdateItem = () => {
                             defaultValue={items.name}
                             placeholder="Product Name"
                             {...register('name', { required: true })}
-                            required
+                            
                             className="input input-bordered w-full" />
                     </div>
                     <div className="">
@@ -87,11 +90,15 @@ const UpdateItem = () => {
                         <label className="label">
                             <span className="label-text">Description</span>
                         </label>
-                        <textarea defaultValue={items.description} {...register('description')} className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                        <textarea 
+                        defaultValue={items.description}
+                         {...register('description')} className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
                     </div>
 
                     <div className="form-control w-full my-6">
-                        <input defaultValue={items.image} {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
+                        <input
+                        //  defaultValue={items.image} 
+                        {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
 
                     <button className="btn">

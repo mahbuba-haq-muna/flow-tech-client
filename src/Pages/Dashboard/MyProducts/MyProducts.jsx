@@ -71,7 +71,7 @@ const MyProducts = () => {
                                 </td>
                                 <td><button className="btn">pending</button></td>
                                 <th>
-                                    <Link to={`dashboard/updateItems/${item._id}`}><button className="btn btn-ghost btn-xs"><FaEdit></FaEdit></button></Link>
+                                    <Link to={`/dashboard/updateItem/${item._id}`}><button className="btn btn-ghost btn-xs"><FaEdit></FaEdit></button></Link>
                                 </th>
                                 <th>
                                     <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-xs"><FaTrash></FaTrash></button>

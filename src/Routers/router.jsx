@@ -19,6 +19,8 @@ import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
 import AdminRoute from "./AdminRoute";
+import Statistics from "../Pages/Dashboard/Statistics/Statistics";
+import Coupon from "../Pages/Dashboard/Coupon/Coupon";
 
 
  export  const router = createBrowserRouter([
@@ -63,6 +65,7 @@ import AdminRoute from "./AdminRoute";
       path: 'dashboard',
       element: <DashBoard></DashBoard>,
       children: [
+        // user dashboard
         {
           path: 'userProfile',
           element: <UserProfile></UserProfile>
@@ -76,18 +79,29 @@ import AdminRoute from "./AdminRoute";
           element: <MyProducts></MyProducts>
         },
         {
+          path: 'updateItem/:id',
+          element: <UpdateItem></UpdateItem>,
+          loader:  ({params}) =>fetch(`https://flow-tech-server.vercel.app/myItems/${params.id}`)
+        },
+
+          // admin dashboard
+        {
           path: 'users',
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
         {
-          path: 'statistics'
+          path: 'statistics',
+          element: <Statistics></Statistics>
         },
         {
-          path: 'updateItems',
-          element: <UpdateItem></UpdateItem>,
-          loader: ({params}) =>fetch(`https://flow-tech-server.vercel.app/updateItems/${params.id}`),
+          path: 'coupon',
+          element: <Coupon></Coupon>
         },
-       
+
+        // moderator dashboard
+        {
+
+        },
         {
           path: 'productReview',
           element: <ProductReview></ProductReview>

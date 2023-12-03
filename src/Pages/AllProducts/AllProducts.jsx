@@ -21,20 +21,14 @@ const AllProducts = () => {
         setSearch(searchText)
     }
     const [products, setProduct] = useState([])
-    // useEffect(() => {
-    //     fetch(`https://flow-tech-server.vercel.app/products?search=${search}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setProduct(data)
-    //         })
-    // }, [search])
     useEffect(() => {
-        fetch(`https://flow-tech-server.vercel.app/products`)
+        fetch(`https://flow-tech-server.vercel.app/products?search=${search}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data)
             })
-    }, [])
+    }, [search])
+   
 
     const handleUpvote = (productId) => {
         setProduct((prevProducts) => {
