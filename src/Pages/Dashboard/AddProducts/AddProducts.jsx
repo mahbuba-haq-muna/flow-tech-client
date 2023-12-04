@@ -1,31 +1,28 @@
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { useState } from "react";
-import InputTag from "../../../components/InputTag/InputTag";
+import { WithContext as ReactTags } from 'react-tag-input';
 
 
 const AddProducts = () => {
-    const [formTags, setFormTags] = useState([]);
-
-    const handleTagsChange = (tags) => {
-      setFormTags(tags);
-    };
-
-   
     const { user } = useAuth()
-    const { register, handleSubmit, reset, } = useForm();
+    const { register, handleSubmit, reset, control } = useForm();
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
     const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
     const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-  
+
 
     const onSubmit = async (data) => {
-        
+
+        const tagsArray = data.tags.map((tag) => tag.text);
+
+        // Log the form data with only tag texts
+        console.log('Form data with tags:', { ...data, tags: tagsArray });
+
         console.log(data)
         // image upload to imgbb and then get an url
         const imageFile = { image: data.image[0] }
@@ -43,9 +40,12 @@ const AddProducts = () => {
                 description: data.description,
                 image: res.data.data.display_url,
                 date: data.date,
-                tags: formTags,
+                tags: tagsArray,
+                upvotes: data.upvotes,
+                downvotes: data.downvotes
+
             }
-           
+
             const productsRes = await axiosSecure.post('/myItems', newProducts);
             console.log(productsRes.data)
             if (productsRes.data.insertedId) {
@@ -54,10 +54,18 @@ const AddProducts = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added to the menu.`,
+                    title: `${data.name} is added to the my Products.`,
                     showConfirmButton: false,
                     timer: 1500
                 });
+            }
+
+            const productsPut = await axiosSecure.post('/Featured', newProducts);
+            console.log(productsPut.data)
+            if (productsPut.data.insertedId) {
+                // show success popup
+                reset();
+                Swal.fire(`${data.name} is added to the featured items`);
             }
         }
 
@@ -101,8 +109,48 @@ const AddProducts = () => {
                                 {...register('date', { required: true })}
                                 className="input input-bordered w-full" />
                         </div>
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">Upvotes</span>
+                            </label>
+                            <input
+                                type="Number"
+                                value={0}
+                                {...register('upvotes', { valueAsNumber: true })}
+                                className="input input-bordered w-full" />
+                        </div>
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">Down votes</span>
+                            </label>
+                            <input
+                                type="Number"
+                                value={0}
+                                {...register('downvotes', { valueAsNumber: true })}
+                                className="input input-bordered w-full" />
+                        </div>
 
-                       <InputTag onTagsChange={handleTagsChange}></InputTag>
+                        <div>
+                            <label className="block text-gray-700 font-bold mb-2">Tags</label>
+                            <Controller
+                                name="tags"
+                                control={control}
+                                defaultValue={[]}
+                                render={({ field }) => (
+                                    <ReactTags
+                                        {...field}
+                                        handleDelete={(i) => field.onChange(field.value.filter((_, index) => index !== i))}
+                                        handleAddition={(tag) => field.onChange([...field.value, tag])}
+                                        placeholder="Enter tags"
+                                        classNames={{
+                                            tag: 'inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2',
+                                            tagInput: 'border rounded-md px-4 py-2 focus:outline-none focus:border-blue-500',
+                                            remove: 'text-gray-500 hover:text-red-600',
+                                        }}
+                                    />
+                                )}
+                            />
+                        </div>
 
                         <div className="form-control w-full my-6">
                             <label className="label">

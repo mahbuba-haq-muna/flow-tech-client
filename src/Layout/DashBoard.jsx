@@ -3,8 +3,10 @@ import logo from '../assets/flow.png'
 import { FaBars, FaChartLine, FaHome, FaList, FaShoppingBag, FaTag, FaUsers } from 'react-icons/fa';
 import useAdmin from '../hooks/useAdmin';
 import useModerator from '../hooks/useModerator';
+import useAuth from '../hooks/useAuth';
 
 const DashBoard = () => {
+    const {user} = useAuth()
     const [isAdmin] = useAdmin();
     const [isModerator] = useModerator()
     return (
@@ -17,7 +19,39 @@ const DashBoard = () => {
                         <h2 className="text-3xl font-bold uppercase">Flow Tech</h2>
                     </div>
                     <ul className="menu text-lg">
-                        {
+                        {user && isAdmin && <>
+                                <li><Link to="/dashboard/statistics">
+                                    <FaChartLine></FaChartLine>Statistics</Link>
+                                </li>
+                                <li><Link to="/dashboard/users">
+                                   <FaUsers></FaUsers>Manage Users </Link>
+                                </li>
+                                <li><Link to="/dashboard/coupon">
+                                    <FaTag></FaTag>Manage Coupons </Link>
+                                </li>
+                            </>}
+
+                            {user && isModerator &&  <>
+                                <li><Link to="/dashboard/productReview">
+                                    <FaChartLine></FaChartLine>Product Review</Link>
+                                </li>
+                                <li><Link to="/dashboard/reported">
+                                   <FaUsers></FaUsers>Reported Content </Link>
+                                </li>
+                                </>}
+
+                            {user && !isAdmin && !isModerator && <>
+                                    <li><Link to="/dashboard/userProfile">
+                                        <FaHome></FaHome> User Profile</Link>
+                                    </li>
+                                    <li><Link to="/dashboard/addProduct">
+                                        <FaShoppingBag></FaShoppingBag>Add Products</Link>
+                                    </li>
+                                    <li><Link to="/dashboard/myProduct">
+                                        <FaList></FaList> My Products</Link>
+                                    </li>
+                                </> }    
+                        {/* {
                             isAdmin ? <>
                                 <li><Link to="/dashboard/statistics">
                                     <FaChartLine></FaChartLine>Statistics</Link>
@@ -29,8 +63,9 @@ const DashBoard = () => {
                                     <FaTag></FaTag>Manage Coupons </Link>
                                 </li>
                             </>
-                                :
-                                isModerator ? <>
+                               :
+                               
+                               ( isModerator ? <>
                                 <li><Link to="/dashboard/productReview">
                                     <FaChartLine></FaChartLine>Product Review</Link>
                                 </li>
@@ -38,8 +73,8 @@ const DashBoard = () => {
                                    <FaUsers></FaUsers>Reported Content </Link>
                                 </li>
                                 </>
-                                :
-                                <>
+                               :
+                               <>
                                     <li><Link to="/dashboard/userProfile">
                                         <FaHome></FaHome> User Profile</Link>
                                     </li>
@@ -49,8 +84,9 @@ const DashBoard = () => {
                                     <li><Link to="/dashboard/myProduct">
                                         <FaList></FaList> My Products</Link>
                                     </li>
-                                </>
-                        }
+                                </>)
+                        } */}
+                    
 
 
                         {/* shared list*/}

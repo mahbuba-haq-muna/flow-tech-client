@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { FaBoxOpen, FaRegCommentAlt, FaUsers } from "react-icons/fa";
 import { PieChart, Pie, Cell, Legend} from 'recharts';
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
