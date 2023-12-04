@@ -91,7 +91,7 @@ import Coupon from "../Pages/Dashboard/Coupon/Coupon";
         },
         {
           path: 'statistics',
-          element: <Statistics></Statistics>
+          element: <AdminRoute><Statistics></Statistics></AdminRoute>
         },
         {
           path: 'coupon',

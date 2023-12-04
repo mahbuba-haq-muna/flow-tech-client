@@ -30,18 +30,19 @@ const UpdateItem = () => {
                 name: data.name,
                 link: data.link,
                 description: data.description,
-                image: res.data.data.display_url
+                image: res.data.data.display_url,
+                date: data.date
             }
             
             const productsRes = await axiosSecure.patch(`/myItems/${items._id}`, newProducts);
             console.log(productsRes.data)
-            if(productsRes.data.insertedId){
+            if(productsRes.data.modifiedCount){
                 // show success popup
                 reset();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added to the menu.`,
+                    title: `${data.name} is updated to the menu.`,
                     showConfirmButton: false,
                     timer: 1500
                   });
@@ -82,7 +83,16 @@ const UpdateItem = () => {
                                 {...register('link', { required: true })}
                                 className="input input-bordered w-full" />
                         </div>
-                       
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">Date</span>
+                            </label>
+                            <input
+                            defaultValue={items.date}
+                                type="Date"
+                                {...register('date', { required: true })}
+                                className="input input-bordered w-full" />
+                        </div>
 
                     </div>
                     
@@ -102,7 +112,7 @@ const UpdateItem = () => {
                     </div>
 
                     <button className="btn">
-                        Add Item 
+                        Update Item 
                     </button>
                 </form>
         </div>

@@ -71,10 +71,10 @@ const MyProducts = () => {
                                 </td>
                                 <td><button className="btn">pending</button></td>
                                 <th>
-                                    <Link to={`/dashboard/updateItem/${item._id}`}><button className="btn btn-ghost btn-xs"><FaEdit></FaEdit></button></Link>
+                                    <Link to={`/dashboard/updateItem/${item._id}`}><button className="btn btn-ghost btn-xs"><FaEdit className="text-2xl text-blue-500"></FaEdit></button></Link>
                                 </th>
                                 <th>
-                                    <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-xs"><FaTrash></FaTrash></button>
+                                    <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-xs"><FaTrash className="text-2xl text-red-500"></FaTrash></button>
                                 </th>
                             </tr>)
                         }
