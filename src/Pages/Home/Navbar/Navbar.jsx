@@ -3,6 +3,7 @@ import { Link, NavLink} from "react-router-dom";
 import logo from '../../../assets/flow.png'
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import "./Navbar.css"
 
 const Navbar = () => {
 
@@ -17,10 +18,10 @@ const Navbar = () => {
 
     const navLinks = <>
 
-        <li><NavLink>Home</NavLink></li>
-        <li><NavLink to={'/products'}>Products</NavLink></li>
+        <li className="lg:text-xl hover:text-teal-700"><NavLink to={"/"}>Home</NavLink></li>
+        <li className="lg:text-xl hover:text-teal-700"><NavLink to={'/products'}>Products</NavLink></li>
         {
-            user ? '' : <li><NavLink to={'/login'}>Login</NavLink></li>
+            user ? '' : <li className="lg:text-xl hover:text-teal-700"><NavLink to={'/login'}>Login</NavLink></li>
         }
 
 
@@ -44,7 +45,7 @@ const Navbar = () => {
                     </div>
                     <Link className="btn btn-ghost text-xl"><img src={logo} alt="" className="w-20 rounded-sm" /> <span>FLOW TECH</span></Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className=" hidden lg:flex">
                     <ul className="flex space-x-10 px-1">
                         {
                             navLinks
@@ -69,7 +70,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-                : ''
+                : <div className="navbar-end"></div>
                 }
                 
             </div>
